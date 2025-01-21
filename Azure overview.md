@@ -124,7 +124,7 @@ Container is basically like a directory and a collection of blobs
   Table 
   - Semi Structured/ No SQL
   - Denormalized data
-  - Each row is uniquely identified by a key
+  - A key uniquely identifies each row
   - No relation among them, no foreign key
   - While insertion - Row key and partition key is required
   - Next version of table is Cosmodb
@@ -150,6 +150,8 @@ Azure Data Lake Gen2
 - bult on top of azure blob storage (Data Blob + Azure Data Lake Gen1)
 - Hierarchial data structure (not available in blob)
 - Hadoop-compatible access
+
+  *** Example: Move from hot to cool tier after 30 days of no access, cool to archive after 180 days ***
 
 
 Managing Azure Storage using Azure CLI :-
