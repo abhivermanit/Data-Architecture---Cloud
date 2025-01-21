@@ -77,13 +77,57 @@ Allows running massively parallel queries without managing underlying compute.
 - Core feature: 60 distributions (virtual machines) for massively parallel processing (MPP).
 
   **Types of distribution methods**
-    **Hash Distribution** : - Use for tables larger than 2GB with regular I/O.
+
+
+**Hash Distribution** :
+
+- Hash Distribution is a method used in databases to evenly distribute data across multiple nodes or partitions based on a hash function.
+  This helps improve performance and balance the load when processing queries.
+  
+- Use for tables larger than 2GB with regular I/O.
 
 - Synapse creates a cryptographic hash of a column to distribute rows.
 
 - Combined with clustered columnstore indexes for fast query performance.
 
 - Example: Distributing sales data by customer ID for parallel processing.
+
+- How It Works:
+Hash Function: A hash function takes a specific column's value (like an ID) and converts it into a hash value.
+Distribution: The hash value determines which node or partition the data will go to. This ensures that data is spread out evenly.
+
+- Example:
+Imagine you have a table of customer orders, and you want to distribute the data based on the customer_id:
+
+If you have 4 nodes (Node 1, Node 2, Node 3, Node 4), the hash function might assign:
+customer_id 1 → Node 1
+customer_id 2 → Node 2
+customer_id 3 → Node 3
+customer_id 4 → Node 4
+customer_id 5 → Node 1 (and so on)
+Benefits:
+Balanced Load: Helps prevent any single node from becoming a bottleneck.
+Improved Performance: Queries can be processed in parallel across multiple nodes, speeding up data retrieval.
+In short, hash distribution helps manage data efficiently in a distributed database system(type of database that is spread across multiple locations or servers)!
+
+- 
+
+**Round-robin Distribution**
+- Ideal for temporary staging tables or data loads.
+
+- Distributes rows evenly across all distributions without computing hashes.
+
+- Example: Staging table for initial data load before further processing.
+
+**Replication**
+- Use for small tables (<2GB) requiring fast queries.
+
+- Replicates all rows to every distribution, avoiding the need to access other distributions during queries.
+
+- Example: Lookup tables that are frequently joined with large fact tables.
+
+
+
 
 
 
