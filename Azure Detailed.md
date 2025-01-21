@@ -108,11 +108,10 @@ customer_id 5 → Node 1 (and so on)
 Benefits:
 Balanced Load: Helps prevent any single node from becoming a bottleneck.
 Improved Performance: Queries can be processed in parallel across multiple nodes, speeding up data retrieval.
-In short, hash distribution helps manage data efficiently in a distributed database system(type of database that is spread across multiple locations or servers)!
+In short, hash distribution helps manage data efficiently in a distributed database system(a type of database that is spread across multiple locations or servers)!
 
-- 
 
-**Round-robin Distribution**
+**Round-Robin Distribution**
 - Ideal for temporary staging tables or data loads.
 
 - Distributes rows evenly across all distributions without computing hashes.
@@ -125,6 +124,9 @@ In short, hash distribution helps manage data efficiently in a distributed datab
 - Replicates all rows to every distribution, avoiding the need to access other distributions during queries.
 
 - Example: Lookup tables that are frequently joined with large fact tables.
+
+
+
 
 
 
