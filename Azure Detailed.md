@@ -126,7 +126,7 @@ In short, hash distribution helps manage data efficiently in a distributed datab
 - Example: Lookup tables that are frequently joined with large fact tables.
 
 
-
+ 
 
 
 
