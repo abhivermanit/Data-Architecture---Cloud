@@ -45,7 +45,15 @@ VPC - Virtual Private Cloud - Used to create a separate isolated network
   - systemctl, systemctl is a versatile and essential tool for managing services and system states in Linux distributions
   - sudo systemctl start <service_name>
   - sudo systemctl start httpd ( The command activates the Apache HTTP Server service, allowing it to begin handling incoming HTTP requests. )
-  - 
+  - systemctl enable httpd
+  - Incoming HTTP requests mean that you can access via web page using the address
+  - Windows client can use putty to connect and linux client can use ssh
+  - sudo -s (to start a new shell session with root privileges)
+  - dnf -y install httpd PHP (dnf is successor of yum -y is for yes, this is for installing php)
+  - cat >index.html (index.html is the file using this we can edit the file and then using cat we can view the file)
+ 
+- ssh -i /path/to/private_key.pem user@hostname (This is the path to the private key file you want to use for authentication. It is typically a file with a .pem or .key extension)
+- 
 
 
 
