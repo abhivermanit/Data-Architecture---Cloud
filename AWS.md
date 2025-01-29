@@ -38,9 +38,9 @@ VPC - Virtual Private Cloud - Used to create a separate isolated network
 - Launcing an Apache web server on EC2
 - sudo yum install httpd
 
-  **Here the sudo vs su debate, sudo is super user do and su is used to switch the user**
-  **yum is the package manager which can be RedHat or anything (Yellowdog Updater, Modified), basically a package manager for the unix like service**
-  **httpd is the Apache HTTP Server, which is a widely used web server software. Web server software means that we can install and work on softwares on the web on this server, its an online pc for web softwares**
+  **Here the sudo vs su debate, sudo is super user do and su is used to switch the user       ......
+  yum is the package manager which can be RedHat or anything (Yellowdog Updater, Modified), basically a package manager for the unix like service             .......
+ httpd is the Apache HTTP Server, which is a widely used web server software. Web server software means that we can install and work on softwares on the web on this server, its an online pc for web softwares**
 
   - systemctl, systemctl is a versatile and essential tool for managing services and system states in Linux distributions
   - sudo systemctl start <service_name>
