@@ -53,7 +53,45 @@ VPC - Virtual Private Cloud - Used to create a separate isolated network
   - cat >index.html (index.html is the file using this we can edit the file and then using cat we can view the file)
  
 - ssh -i /path/to/private_key.pem user@hostname (This is the path to the private key file you want to use for authentication. It is typically a file with a .pem or .key extension)
-- 
 
+
+  ## Storage
+  - Direct Attach Storage (DAS): like pendrive, USB, Hard Diskm instance storage(EBS) - for cloud
+  - Network Attached Storage (NAS): Can be accessed by all the users in a local network, also called EFS(Elastic File System)-for cloud . One PC becomes the master or server and shares it to nearby PC's. another example is a printer
+  - Storage Area Network (SAN): EBS(Elastic Block Store)-for cloud, data is stored in data blocks and not file system. Data blocks means C:, D: etc these storage blocks
+  - Simple Storage Service (S3): to store the objects, data can be stored on a URL
+ 
+- fdisk -l (list all the disks available)
+- mount /dev/xvdf1  /ebs (ebs is being mounted in the linux instance)
+- df -h (report file system disk space usage df -kh will give the result in kB)
+- So basically the hard disk can be included in the cloud VM using the AWS account and SAN, then this hard disk is being mounted above
+- umount /ebs
+
+**AMI**
+
+So now let's say we create a VM, AMI (Amazon Machine Image). This VM need storage/hard drive. 
+- If we launch an EC2 instance for compute, we can either use EBS or Instance Store
+- Instance Store is temporary, once we terminate the EC2, data is gone
+- Let's say we create an EC2 in AZ1 aread using EBS, then we can take EBS snapshots
+- These snapshots take full backup on the first time and then it is incremental, these backups are stored in S3
+- Now using this S3 we can create a new VM in any other region
+- WE can also transfer files between 2 instances using EFS
+
+
+**Launching an Instance**
+
+- Name
+- AMI
+- Instance Type
+- Key pair
+- Network Settings
+- Configure storage
+
+
+**S3**
+
+- We can store objects in S3 using a link so we don't need to initiate an instance
+- create a bucket in some region
+- 
 
 
