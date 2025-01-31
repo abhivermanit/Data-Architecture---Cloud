@@ -92,6 +92,29 @@ So now let's say we create a VM, AMI (Amazon Machine Image). This VM need storag
 
 - We can store objects in S3 using a link so we don't need to initiate an instance
 - create a bucket in some region
-- 
+- We can make the bucket and objects public as well
+- For this we need to follow the bucket policy
 
+- Bucket Versioning - to revert to the older version
 
+- Launch static website using S3
+- There should be an HTML file in the bucket, then there is an option to host the website, whatever the html file holds become the website's script
+- Amazon Athena can be used to do simple query SQL on S3
+- Amazon Redshift Spectrum does more complex SQL queries on large datasets
+
+**RDS**
+- Relational Database Service
+- Six database engine available are Amazon Aurora, MariaDB, MySQL, PostgreSQL, Oracle and SQL Server
+- AWS Database Migration Service (DMS) can be used to migrate existing databases to Amazon RDS.
+
+**DynamoDB**
+- Here we use partition key and storage key
+- it is automated on the aws website, just like interana we used to use
+- We can enter the attributes and the values of partition and storage key to retrieve the data
+
+Multiple NoSQL databases are supported :-
+Key Value - Pairs of key and it's value
+Document - Amazon DocumentDB, stored like in JSON {}
+Graph - Amazon Neptune
+In Memory - Amazon DynamoDB
+Amazon Elasticsearch Service
