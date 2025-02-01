@@ -130,6 +130,9 @@ Amazon Elasticsearch Service
 - echo "Apache Web Server launched in Public Subnet">index.html (this texts get stored in the file and displays the output also)
 - Route Table is the set of rules where the network traffic is directed.
 - resources in the VPC(EC2) and the internet, this connection is established using the internet Internet gateway
+- Just like a city can have different neighborhoods with different rules (e.g., traffic flow, security), a VPC can have subnets with different access control rules
+  (public or private).
+- Each neighborhood (subnet) can have its own road system (IP addressing), and the roads are controlled by traffic signs (network ACLs and route tables).
 
 # Custom VPC setup 
 
@@ -145,4 +148,6 @@ Amazon Elasticsearch Service
 - launch backend RDS instance (ourdb)
 - connect to webserver instance using Putty
 - deploy simple PhP/MySQL application in custom VPC 
+
+
 
