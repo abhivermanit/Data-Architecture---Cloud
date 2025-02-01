@@ -118,3 +118,13 @@ Document - Amazon DocumentDB, stored like in JSON {}
 Graph - Amazon Neptune
 In Memory - Amazon DynamoDB
 Amazon Elasticsearch Service
+
+
+**VPC**
+- Virtual Private Cloud
+- It has different ranges of IP address some start from 192, some from 172, some from 10
+- so within a VPC we have something called a subnet, which is basically a range of IP addresses
+- within a subnet we can create an instance, so like VPC will be for a region and we create our private/public subnet which has only our instance
+- Then we have public/private routing table and vpc will also have a main route table
+- VPC can be created using AWS console and then subnets within it
+- echo "Apache Web Server launched in Public Subnet">index.html (this texts get stored in the file and displays the output also)
