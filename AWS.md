@@ -128,3 +128,21 @@ Amazon Elasticsearch Service
 - Then we have public/private routing table and vpc will also have a main route table
 - VPC can be created using AWS console and then subnets within it
 - echo "Apache Web Server launched in Public Subnet">index.html (this texts get stored in the file and displays the output also)
+- Route Table is the set of rules where the network traffic is directed.
+- resources in the VPC(EC2) and the internet, this connection is established using the internet Internet gateway
+
+# Custom VPC setup 
+
+- Setup VPC lab
+- create custom vpc (ourvpc)
+- create 2 public and 2 private subnets
+- create internet gateway (ourig) and attach to VPC
+- create and config routing table (public routing table)
+- create webserver security group and add rules (webserver)
+- Launch internet facing linux apache web server instance (webhosting)
+- create database security group and add rules (database)
+- private subnets for database (db-subnet)
+- launch backend RDS instance (ourdb)
+- connect to webserver instance using Putty
+- deploy simple PhP/MySQL application in custom VPC 
+
