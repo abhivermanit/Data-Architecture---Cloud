@@ -123,13 +123,13 @@ Amazon Elasticsearch Service
 **VPC**
 - Virtual Private Cloud
 - It has different ranges of IP address some start from 192, some from 172, some from 10
-- so within a VPC we have something called a subnet, which is basically a range of IP addresses
+- so within a VPC we have something called a subnet, which is a range of IP addresses
 - within a subnet we can create an instance, so like VPC will be for a region and we create our private/public subnet which has only our instance
 - Then we have public/private routing table and vpc will also have a main route table
 - VPC can be created using AWS console and then subnets within it
 - echo "Apache Web Server launched in Public Subnet">index.html (this texts get stored in the file and displays the output also)
 - Route Table is the set of rules where the network traffic is directed.
-- resources in the VPC(EC2) and the internet, this connection is established using the internet Internet gateway
+- resources in the VPC(EC2) and the internet, this connection is established using the Internet gateway
 - Just like a city can have different neighborhoods with different rules (e.g., traffic flow, security), a VPC can have subnets with different access control rules
   (public or private).
 - Each neighborhood (subnet) can have its own road system (IP addressing), and the roads are controlled by traffic signs (network ACLs and route tables).
@@ -149,5 +149,18 @@ Amazon Elasticsearch Service
 - connect to webserver instance using Putty
 - deploy simple PhP/MySQL application in custom VPC 
 
+So website can be deployed on a public subnet which can be accessed to the internet, and the database for that website cannot be accessed through the internet and 
+is deployed on a private subnet. So we use gateway which allows the public subnet to connect to the internet. 
 
+Next is to configure the routing tables, they control the network flow in a VPC. These tables define where the data needs to go. The table has the destination address and gateways through which the data will flow mentioned. 
+
+Allows SSH (22), HTTP (80), and HTTPS (443). These are all security groups that are created in the next steps. Ensures who can access what in the VPC. Only necessary ports are opened, reducing the risk of unauthorized access.
+
+A webpage is hosted on a server - in this case, it is the Apache Web Server.
+PHP script is deployed to interact with the database, fetch data, and display it on the website. The website is coded in PHP.
+
+All the installing part of the apache web server and php to process web requests can be done on EC2 instance. 
+
+Web Server (EC2 + Apache + PHP) → In Public Subnet
+Database (Amazon RDS - MySQL) → In Private Subnet (inside a Database Subnet Group)
 
