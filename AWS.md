@@ -164,3 +164,72 @@ All the installing part of the apache web server and php to process web requests
 Web Server (EC2 + Apache + PHP) → In Public Subnet
 Database (Amazon RDS - MySQL) → In Private Subnet (inside a Database Subnet Group)
 
+**ELB**
+
+- Elastic Load Balancer
+- Basically balances the incoming app or network traffic, ensuring no instance is overloaded
+- Application Load Balancer (ALB), Network Load Balancer (NLB)
+
+-  Imagine you have a website with a /products page and a /blog page. The ALB can route traffic to different EC2 instances based on the URL path:
+/products -> EC2 instance running your product service.
+/blog -> EC2 instance running your blog service.
+
+-  If you need to load balance at a very low level, like for game servers or VoIP services, the NLB will route requests to EC2 instances that are optimized for handling millions of requests per second, quickly and efficiently.
+
+-  Auto Scaling Group (ASG)
+When traffic increases, ASG will automatically launch new EC2 instances to meet the demand (more "houses" are built in the neighborhood).
+When traffic decreases, ASG will terminate unnecessary EC2 instances to save costs (some "houses" are demolished).
+
+
+**CloudWatch**
+- powerful monitoring and observability tool in AWS
+- CloudWatch collects metric data from various AWS services, such as EC2, RDS, Lambda, etc. Metrics might include things like:
+
+CPU utilization of EC2 instances
+Network traffic of load balancers
+Disk I/O of EBS volumes
+Memory usage (for EC2 instances with custom CloudWatch agents)
+
+- CloudWatch can aggregate and store logs from AWS services like Lambda, API Gateway, or custom log files from your EC2 instances.
+ This is helpful for tracking application activity, errors, or system events.
+
+- CloudWatch can be integrated into your CI/CD pipeline, serverless architecture, or any AWS-based application to provide full observability.
+- CloudWatch is the go-to tool for monitoring AWS environments, Prometheus, and New Relic are excellent choices for multi-cloud or hybrid environments,
+  Splunk and the ELK stack excel at log aggregation, analysis, and real-time security monitoring.
+
+- Simple Notification Service (SNS) - This sends the notification to email
+
+
+**Stateful vs Stateless Firewall in AWS**
+- Both are concepts of network security ensuring the data that flows out of the VPC
+
+  Stateful Firewall
+  - You have an EC2 instance running a web application (e.g., a website).
+You set an inbound rule to allow HTTP traffic (port 80) from anywhere (0.0.0.0/0).
+If someone makes an HTTP request to your website (port 80), the security group will allow the incoming traffic.
+The web server sends the response back to the requester (HTTP response), and the security group automatically allows the outbound response traffic,
+ even if you haven't set a rule for outbound traffic.
+
+- A stateless firewall is like a security guard who checks every individual request without remembering any past requests. Each packet is treated as a completely new, isolated event.
+You create an inbound rule to allow HTTP traffic (port 80) from anywhere (0.0.0.0/0).
+You also need to create an outbound rule to allow responses (to send the HTTP response back to the client).
+If you forget the outbound rule, the response from the server won’t be allowed out, even though the incoming request was allowed.
+
+**Five IP addresses are reserved in each subnet.
+For example in subnet“10.0.1.0/24”**
+
+First Address 10.0.1.0 (Network Address)
+Second Address 10.0.1.1 (VPC Router)
+Third Address 10.0.1.2 (DNS Address)
+Fourth Address 10.0.1.3 (Reserved)
+Last Address 10.0.1.254 (Broadcast Address)
+
+AWS WAF (Web Application Firewall) - It protects web applications from common web exploits.
+AWS Shield (Standard and Advanced) - It protects applications against DDoS attacks.
+A DDoS (Distributed Denial of Service) attack is a cyberattack where multiple compromised computers (botnets) flood a target system with traffic to overwhelm and crash it. The goal is to make a website, application, or network unavailable to legitimate users.
+Amazon Inspector -  check the applications for vulnerabilities and deviations
+Amazon GuardDuty - It offers intelligent threat detection for your AWS resources
+Amazon Macie - discover and protect your sensitive data at scale.
+AWS CloudTrail - It continuously log your account activity.
+AWS Trusted Advisor - It inspects your AWS environment and gives real-time recommendations
+
