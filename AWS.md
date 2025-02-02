@@ -225,11 +225,18 @@ Fourth Address 10.0.1.3 (Reserved)
 Last Address 10.0.1.254 (Broadcast Address)
 
 AWS WAF (Web Application Firewall) - It protects web applications from common web exploits.
+
 AWS Shield (Standard and Advanced) - It protects applications against DDoS attacks.
+
 A DDoS (Distributed Denial of Service) attack is a cyberattack where multiple compromised computers (botnets) flood a target system with traffic to overwhelm and crash it. The goal is to make a website, application, or network unavailable to legitimate users.
+
 Amazon Inspector -  check the applications for vulnerabilities and deviations
+
 Amazon GuardDuty - It offers intelligent threat detection for your AWS resources
+
 Amazon Macie - discover and protect your sensitive data at scale.
+
 AWS CloudTrail - It continuously log your account activity.
+
 AWS Trusted Advisor - It inspects your AWS environment and gives real-time recommendations
 
