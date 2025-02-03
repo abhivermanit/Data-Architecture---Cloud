@@ -240,3 +240,7 @@ AWS CloudTrail - It continuously log your account activity.
 
 AWS Trusted Advisor - It inspects your AWS environment and gives real-time recommendations
 
+
+**Docker**
+- In earlier days, people used to work on physical machine, then came VMs and now it is containers everywhere.
+- 
